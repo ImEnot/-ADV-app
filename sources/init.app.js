@@ -36,6 +36,7 @@
                         'Error of getting global Events -- ADV_App.initializeModels'
                     )
                 }
+                new _ADV.ADV__Events;
             }
         }
     }());
