@@ -1,3 +1,5 @@
+import ADV_Integration from '../constructor/init.Integration';
+
 class EventListener {
     constructor(params) {
         if (!params) {
@@ -20,7 +22,17 @@ class EventListener {
             if (!e.detail) {
                 return;
             }
-            console.log(e);
+
+            /**
+             * ADV_Integration constructor.
+             * @type {ADV_Integration}
+             */
+            let newIntegration = new ADV_Integration(e.detail);
+
+            /**
+             * Initialize integration.
+             */
+            newIntegration._initIntegration();
         }
         window.addEventListener(this.namespace, function(event) {
             callListener(event)

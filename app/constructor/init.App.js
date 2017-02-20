@@ -1,12 +1,7 @@
 /**
- * Import of PAGES constants.
+ * Import of EVENTS constants.
  */
-import {ADV_PAGE} from '../constants/PAGES';
-
-/**
- * Import of LISTENER constants.
- */
-import {ADV_LISTENER} from '../constants/LISTENER';
+import {ADV_EVENTS} from '../constants/EVENTS';
 
 /**
  * Import of EventListener constructor.
@@ -19,7 +14,7 @@ import EventListener from '../events/event.Listener';
 import EventDispatcher from '../events/event.Dispatcher';
 
 
-let ADV__app = (function() {
+const ADV__app = (function() {
     return {
         call : function() {
             if (!arguments.length) {
@@ -36,11 +31,13 @@ let ADV__app = (function() {
              */
             this.initializeParams(_ADV);
 
+
             /**
              * Initialize of ADV-listener.
              * @param DEFAULT_NAMESPACE.
              */
             this.initializeListener();
+
 
             /**
              * Initialize of ADV-event.
@@ -52,12 +49,12 @@ let ADV__app = (function() {
         initializeListener : function() {
             /**
              * EventListener constructor.
-             * @type {EventListener}
              *
+             * @type {EventListener}
              * @namespace used EventRoute.
              */
             let newEventListener = new EventListener({
-                namespace: this.EventRoute || ADV_LISTENER.DEFAULT_NAMESPACE
+                namespace: this.EventRoute || ADV_EVENTS.DEFAULT
             });
 
             /**
@@ -76,25 +73,27 @@ let ADV__app = (function() {
 
             if (this.EventRoute == '') {
                 throw Error(
-                    'Error of getting event routing -- ADV_App.initializeEvents'
+                    'Error of getting event routing -- ADV_App.EventRoute'
                 )
             }
 
 
             /**
              * Сheck the page on existence of type.
-             * @type {Array}
+             * @type {string}
              */
-            let Parse__EventRoute = this.EventRoute.split(':');
+            let check__EventRoute = '';
 
-            for (var k in ADV_PAGE) {
-                if (Parse__EventRoute[0] == ADV_PAGE[k]) {
-                    break;
-                } else {
-                    throw Error(
-                        'Can not get type of current page -- ADV_App.initializeEvents'
-                    )
+            for (var k in ADV_EVENTS) {
+                if (this.EventRoute == ADV_EVENTS[k]) {
+                    check__EventRoute = 'Success';
                 }
+            }
+
+            if (check__EventRoute !== 'Success') {
+                throw Error(
+                    'Can not get type of current page -- ADV_App.EventRoute'
+                )
             }
 
 
@@ -106,7 +105,7 @@ let ADV__app = (function() {
 
             if (this.IntegrationRoute == '') {
                 throw Error(
-                    'Error of getting adv. integration -- ADV_App.initializeEvents'
+                    'Error of getting adv. integration -- ADV_App.IntegrationRoute'
                 )
             }
 
@@ -120,11 +119,23 @@ let ADV__app = (function() {
 
 
         initializeEvents : function() {
+            /**
+             * EventDispatcher constructor.
+             *
+             * @type {EventDispatcher}
+             * @params used EventRoute, IntegrationRoute, SpecialData.
+             */
             let newEventDispatcher = new EventDispatcher({
-                namespace: this.EventRoute || ADV_LISTENER.DEFAULT_NAMESPACE,
-                detail: this.SpecialData
+                namespace: this.EventRoute || ADV_EVENTS.DEFAULT,
+                detail: {
+                    integration: this.IntegrationRoute,
+                    data: this.SpecialData
+                }
             });
 
+            /**
+             * Create Event.
+             */
             newEventDispatcher._createEvent();
         }
     }

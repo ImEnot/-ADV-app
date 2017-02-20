@@ -5,7 +5,7 @@ module.exports = {
     //entry: "./app/models/Product",
     output: {
         path: __dirname,
-        filename: "/assets/bundle.js"
+        filename: "/_assets/bundle.js"
     },
     module: {
         loaders: [
