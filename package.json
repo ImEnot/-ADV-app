@@ -1,0 +1,26 @@
+{
+  "name": "advertising",
+  "version": "0.0.1",
+  "description": "application for fast integration of advertising scripts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ImEnot/ADV-app.git"
+  },
+  "author": "Mizin N.E.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ImEnot/ADV-app/issues"
+  },
+  "homepage": "https://github.com/ImEnot/ADV-app",
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.1",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-es2015": "^6.22.0",
+    "webpack": "^2.2.1"
+  }
+}

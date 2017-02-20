@@ -5,14 +5,22 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
         <title>ADV-app</title>
+        <script>
+            window.pet4Data = window.pet4Data || {}; window.pet4Data.product = {"global":{"catalog":{"isCalculatingButtons":false,"hasAlternateUnit":false,"title":"Защита рук","sectionId":"4f72f991-ee4b-11e4-afe5-00259036a192","externalId":20794,"breadcrumbs":[{"title":"Ручной инструмент, спецодежда, хозтовары","externalId":9799},{"title":"Спецодежда и средства защиты","externalId":1407},{"title":"Защита рук","externalId":20794}]}},"product":{"productId":"d203b3ce-b3de-11e3-b8d5-00259036a114","title":"Перчатки виброзащитные MechaniX","code":134448,"actions":[],"price":{"retail":{"raw":1196,"formatted":"1 196"},"gold":{"raw":1160,"formatted":"1 160"},"special":{"raw":0,"formatted":"0"},"points":{"raw":289.75,"formatted":"289,75"}},"properties":{"tip_tovara":["perchatki"],"naznachenie":["vibrozaschitnye"],"price":1196},"description":"Перчатки синтетические, изготовлены из комбинации износостойких синтетических материалов, обеспечивающие максимальный комфорт.  \nПредназначены для защиты рук при работе с электроинструментом, проведении строительных, ремонтных и других  видов работ.\n \nРазмер: L = 9.\nПроизводитель: Франция."}};
+        </script>
     </head>
     <body>
         ADV-app view.
 
-
-        <script type="text/javascript" src="sources/settings/settings.Events.js"></script>
-        <script type="text/javascript" src="sources/events/create.Events.js"></script>
-        <script type="text/javascript" src="sources/models/Product.js"></script>
-        <script type="text/javascript" src="sources/init.app.js"></script>
+        <script type="text/javascript" src="_assets/bundle.js"></script>
+        <script type="text/javascript">
+            (addEventListener || Error)('DOMContentLoaded', function () {
+                ADV__app.call({
+                    event: 'home:view',
+                    integration: 'GTM',
+                    data: {}
+                })
+            });
+        </script>
     </body>
 </html>
